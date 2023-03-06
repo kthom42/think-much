@@ -16,7 +16,7 @@ const thoughtController = {
     Thought.findOne({ _id: req.params.thoughtId })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
-          return res.status(404).json({ message: "No thought with this id!" });
+          return res.status(404).json({ message: "Thought id not found!" });
         }
         res.json(dbThoughtData);
       })
@@ -41,7 +41,7 @@ const thoughtController = {
             .json({ message: "Thought created but no user with this id!" });
         }
 
-        res.json({ message: "Thought successfully created!" });
+        res.json({ message: "Thought created successfully!" });
       })
       .catch((err) => {
         console.log(err);
@@ -56,7 +56,7 @@ const thoughtController = {
     )
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
-          return res.status(404).json({ message: "No thought with this id!" });
+          return res.status(404).json({ message: "Thought id not found!" });
         }
         res.json(dbThoughtData);
       })
@@ -84,7 +84,7 @@ const thoughtController = {
             .status(404)
             .json({ message: "Thought created but no user with this id!" });
         }
-        res.json({ message: "Thought successfully deleted!" });
+        res.json({ message: "Deleted successfully!" });
       })
       .catch((err) => {
         console.log(err);
@@ -99,7 +99,7 @@ const thoughtController = {
     )
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
-          return res.status(404).json({ message: "No thought with this id!" });
+          return res.status(404).json({ message: "Thought id not found!" });
         }
         res.json(dbThoughtData);
       })
@@ -116,7 +116,7 @@ const thoughtController = {
     )
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
-          return res.status(404).json({ message: "No thought with this id!" });
+          return res.status(404).json({ message: "Thought id not found!" });
         }
         res.json(dbThoughtData);
       })
