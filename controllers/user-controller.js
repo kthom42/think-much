@@ -19,7 +19,7 @@ const userController = {
       .populate("thoughts")
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: "No user with this id!" });
+          return res.status(404).json({ message: "User not found!" });
         }
         res.json(dbUserData);
       })
@@ -51,7 +51,7 @@ const userController = {
     )
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: "No user with this id!" });
+          return res.status(404).json({ message: "User not found!" });
         }
         res.json(dbUserData);
       })
@@ -64,13 +64,13 @@ const userController = {
     User.findOneAndDelete({ _id: req.params.userId })
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: "No user with this id!" });
+          return res.status(404).json({ message: "User not found!" });
         }
 
         return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
       })
       .then(() => {
-        res.json({ message: "User and associated thoughts deleted!" });
+        res.json({ message: "Profile deleted successfully!" });
       })
       .catch((err) => {
         console.log(err);
@@ -85,7 +85,7 @@ const userController = {
     )
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: "No user with this id!" });
+          return res.status(404).json({ message: "User not found!" });
         }
         res.json(dbUserData);
       })
@@ -102,7 +102,7 @@ const userController = {
     )
       .then((dbUserData) => {
         if (!dbUserData) {
-          return res.status(404).json({ message: "No user with this id!" });
+          return res.status(404).json({ message: "User not found!" });
         }
         res.json(dbUserData);
       })
